@@ -4,3 +4,9 @@ export const addName=(newVal)=>{
         value: newVal
     }
 }
+export const addSurname=(newVal)=>{
+    return {
+        type: 'addSurname',
+        value: newVal
+    }
+}

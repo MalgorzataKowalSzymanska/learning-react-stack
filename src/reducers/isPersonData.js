@@ -1,9 +1,9 @@
 const emptyPersonReducer = (state = '', action) => {
     switch (action.type) {
         case 'addName':
-            return 'new Name';
+            return action.value;
         case 'addSurname':
-            return 'new Surname';
+            return action.value;
         default:
             return state;
     }
