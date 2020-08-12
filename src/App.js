@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { addName } from './actions';
 
 function App() {
+  const emptyPersonData = useSelector(state => state.isEmpty)
+  const dispatch = useDispatch();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>First react-redux Appp</h1>
+      <h3>For Personal Information:</h3>
+            
+                <label>First name: </label>
+                <input type="text" id="firstName"></input>
+                <button onClick={() => dispatch(addName())}>Add Name</button>
+           
     </div>
   );
 }
