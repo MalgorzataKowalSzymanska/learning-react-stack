@@ -10,3 +10,15 @@ export const addSurname = (newVal) => {
         value: newVal
     }
 }
+export const listAllPeople = (people) => {
+    return {
+        type: 'listAll',
+        value: people.results
+    }
+}
+export const errorAction = () => {
+    return {
+        type: 'errorAPi',
+        value: "Incorrect fetch API with SAGA"
+    }
+}

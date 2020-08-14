@@ -2,10 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addName, addSurname } from './actions';
 import { Button, Input, FormControl, InputLabel } from '@material-ui/core';
+import PersonList from './PesronList';
 
 function App() {
-  const emptyPersonData = useSelector(state => state.isPersonData)
+  const emptyPersonData = useSelector(state => state.isPersonData);
+  const peopleListData = useSelector(state => state.isPersonList);
   const dispatch = useDispatch();
+
   return (
     <div className="App">
       <h1>First react-redux Appp</h1>
@@ -20,8 +23,9 @@ function App() {
         <Input id="surname" />
         <Button variant="outlined" color="primary" onClick={() => dispatch(addSurname(document.getElementById("surname").value))}>Add surname</Button>
       </FormControl>
+      <span>{emptyPersonData}</span>
+      <PersonList peopleList={peopleListData}></PersonList>
     </div>
   );
 }
-
 export default App;

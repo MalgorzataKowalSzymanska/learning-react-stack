@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import allReducers from './reducers';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import { fetchPeople } from './saga.js';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(allReducers, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+sagaMiddleware.run(fetchPeople);
 ReactDOM.render(
   <Provider store={store}>
     <App />
