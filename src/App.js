@@ -4,19 +4,19 @@ import { addName, addSurname } from './actions';
 import { Button, Input, FormControl, InputLabel } from '@material-ui/core';
 
 function App() {
-  const emptyPersonData = useSelector(state => state.isPersonData.type)
+  const emptyPersonData = useSelector(state => state.isPersonData)
   const dispatch = useDispatch();
   return (
     <div className="App">
       <h1>First react-redux Appp</h1>
       <h3>For Personal Information:</h3>
-      <FormControl >
-        <InputLabel >First name: </InputLabel>
+      <FormControl>
+        <InputLabel>First name: </InputLabel>
         <Input id="firstName" />
         <Button variant="contained" color="primary" onClick={() => dispatch(addName(document.getElementById("firstName").value))}>Add Name</Button>
       </FormControl>
       <FormControl>
-        <InputLabel >Surname: </InputLabel>
+        <InputLabel>Surname: </InputLabel>
         <Input id="surname" />
         <Button variant="outlined" color="primary" onClick={() => dispatch(addSurname(document.getElementById("surname").value))}>Add surname</Button>
       </FormControl>
