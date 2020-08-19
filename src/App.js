@@ -3,13 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addName, addSurname, changeColor } from './actions';
 import { Button, Input, FormControl, InputLabel } from '@material-ui/core';
 import PersonList from './PesronList';
+import PersonDetailsForm from './PersonForm';
 
 function App() {
   const emptyPersonData = useSelector(state => state.PersonData);
   const peopleListData = useSelector(state => state.PersonList);
   const backgroundColor = useSelector(state => state.ColorChanger);
   const dispatch = useDispatch();
-
+  const submit = values => {
+    console.log(values)
+  };
   return (
     <div style={{
       backgroundColor: backgroundColor
@@ -29,8 +32,9 @@ function App() {
       <span>{emptyPersonData}</span>
       <Button variant="contained" color="default" onClick={() => dispatch(changeColor(backgroundColor))}>
         change background
-</Button>
+      </Button>
       <PersonList peopleList={peopleListData}></PersonList>
+      <PersonDetailsForm onSubmit={submit} />
     </div>
   );
 }

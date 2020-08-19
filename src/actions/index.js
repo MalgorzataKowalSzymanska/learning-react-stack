@@ -1,5 +1,3 @@
-import { green } from "@material-ui/core/colors"
-
 export const addName = (newVal) => {
     return {
         type: 'addName',
@@ -27,6 +25,6 @@ export const errorAction = () => {
 export const changeColor = (color) => {
     return {
         type: 'changeBackgroundColor',
-        value: color == "grey" ? "white" : "grey"
+        value: color === "grey" ? "white" : "grey"
     }
 }
