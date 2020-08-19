@@ -8,4 +8,4 @@ const emptyPersonReducer = (state = '', action) => {
             return state;
     }
 }
-export default emptyPersonReducer;
+export default emptyPersonReducer
